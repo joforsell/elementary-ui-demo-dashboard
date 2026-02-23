@@ -4,21 +4,15 @@
   </a>
 </p>
 
-# Minimal Vite Starter for ElementaryUI
+# ElementaryUI Dashboard Demo
 
-A starter template for building web applications with [ElementaryUI](https://github.com/elementary-swift/elementary-ui) powered by [Vite](https://vite.dev/).
+A demonstration web application showcasing [ElementaryUI](https://github.com/elementary-swift/elementary-ui) features with Swift on WebAssembly, powered by [Vite](https://vite.dev/).
 
-Click **Use this template** on GitHub or check the [docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) about using templates.
-
-You can use [degit](https://github.com/Rich-Harris/degit) to scaffold a local project.
-```sh
-npx degit elementary-swift/starter-vite my-swift-web-app
-cd my-swift-web-app
-```
-
-<p align="center">
-  <img src="https://elementary-swift.github.io/assets/vite-starter-split-screen.gif" alt="Elementary Demo Split Screen">
-</p>
+This demo includes:
+- Simple password-based authentication with localStorage persistence
+- Interactive collapsible dashboard sections with animations
+- Type-safe CSS styling helpers
+- Backend integration examples (fetching stats from a demo API)
 
 ## Prerequisites
 
@@ -82,23 +76,44 @@ Set `DEMO_PASSWORD` to any string you want. The app will validate login attempts
 
 **Note**: The password is baked into the JavaScript bundle at build time, so this is only suitable for demos.
 
+## Project Structure
+
+```
+elementary-ui-demo/
+├── Sources/WebApp/          # Swift source files
+│   ├── App.swift           # Main application entry point
+│   ├── ContentView.swift   # Root view with login state
+│   ├── LoginView.swift     # Login screen
+│   ├── DashboardView.swift # Dashboard with collapsible sections
+│   ├── AuthState.swift     # Authentication storage helpers
+│   ├── FetchRequest.swift  # HTTP request utilities
+│   └── StyleHelpers.swift  # Type-safe CSS helpers
+├── public/                  # Static assets (images, etc.)
+├── .env                     # Environment variables (DEMO_PASSWORD)
+├── vite.config.ts          # Vite configuration
+└── Package.swift           # Swift package manifest
+```
+
+## Static Assets
+
+Place static files (images, fonts, etc.) in the `public/` folder:
+
+```
+public/
+├── images/
+│   └── logo.svg
+└── icons/
+    └── chevron.svg
+```
+
+Reference them with absolute paths:
+```swift
+img(.src("/images/logo.svg"), .alt("Logo"))
+```
+
 ## Configuration
 
-The template comes with a [Vite config](vite.config.ts) that uses *Embedded Swift* for release builds.
-
-```ts
-// vite.config.ts
-import { defineConfig } from "vite";
-import swiftWasm from "@elementary-swift/vite-plugin-swift-wasm";
-
-export default defineConfig({
-  plugins: [
-    swiftWasm({
-      useEmbeddedSDK: true,
-    }),
-  ],
-});
-```
+The project uses standard Swift SDK for WebAssembly (not Embedded Swift). The [Vite config](vite.config.ts) is configured to inject environment variables at build time.
 
 For all configuration options, visit the plugin's homepage: [vite-plugin-swift-wasm](https://github.com/elementary-swift/vite-plugin-swift-wasm).
 
