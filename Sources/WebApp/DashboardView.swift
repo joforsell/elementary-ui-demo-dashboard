@@ -85,12 +85,10 @@ struct DashboardView {
 
     var mainContent: some View {
         div {
-            img(.src("https://developer.apple.com/assets/elements/icons/swift/swift-128x128_2x.png"), .alt("Swift"))
+            img(.src("https://elementary-swift.github.io/assets/elementary-logo.svg"), .alt("ElementaryUI"))
                 .styles(
-                    .width(.clamp(min: .px(60), ideal: .vw(12), max: .px(80))),
-                    .height(.clamp(min: .px(60), ideal: .vw(12), max: .px(80))),
-                    .borderRadius(.px(18)),
-                    .boxShadow(x: 0, y: 4, blur: 16, spread: 0, color: .rgb(r: 0, g: 0, b: 0, alpha: 0.12)),
+                    .width(.clamp(min: .px(80), ideal: .vw(15), max: .px(120))),
+                    .height(.auto),
                     .margin(.px(0), .auto, .clamp(min: .rem(1.0), ideal: .vw(3), max: .rem(1.5))),
                     .display(.block)
                 )

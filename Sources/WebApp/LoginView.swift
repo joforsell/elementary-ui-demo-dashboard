@@ -14,12 +14,10 @@ struct LoginView {
     var body: some View {
         div {
             div {
-                img(.src("https://developer.apple.com/assets/elements/icons/swift/swift-128x128_2x.png"), .alt("Swift"))
+                img(.src("https://elementary-swift.github.io/assets/elementary-logo.svg"), .alt("ElementaryUI"))
                     .styles(
-                        .width(.px(64)),
-                        .height(.px(64)),
-                        .borderRadius(.px(14)),
-                        .boxShadow(x: 0, y: 4, blur: 16, spread: 0, color: .rgb(r: 0, g: 0, b: 0, alpha: 0.12)),
+                        .width(.px(80)),
+                        .height(.auto),
                         .margin(.px(0), .auto, .rem(1.5)),
                         .display(.block)
                     )
